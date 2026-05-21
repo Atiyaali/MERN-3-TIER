@@ -17,12 +17,14 @@ jobs:
          username: ${{secrets.DOCKER_USERNAME}}
          password: ${{secrets.DOCKER_PASSWORD}}
      - name: frontend image build
-       run: docker build \
+       run: |
+            docker build \
             -t atiyadocker/mern-frontend:${{github.sha}} \
             -t atiyadocker/mern-frontend:latest \
             ./frontend
      - name: backend image build
-       run: docker build \
+       run: |
+            docker build \
             -t atiyadocker/mern-backend:${{github.sha}} \
             -t atiyadocker/mern-backend:latest \
             ./backend
